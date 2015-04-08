@@ -1,0 +1,33 @@
+/*edit_post_step.rb*/
+Given(/^a post exists with title: "(.*?)", content: "(.*?)"$/) do |ttitle, content|
+  # @id = posts(:ttitle).id
+   @post = [{'title' => ttitle}]
+  #visit(@post)
+  #visit posts_path
+
+  edit_post_path(@post)
+  #edit_post_path('/posts/3/edit')
+
+  #visit('/posts/3/edit')
+  #arg1
+end
+
+#When(/^I am on the post's page$/) do
+  # Page with dummy title should be selected express the regexp above with the code you wish you had
+#end
+
+
+# When(/^I update title to "(.*?)"$/) do |title|
+#
+#   @post.fill_in 'title', :with => title
+# end
+#
+# When(/^I update content to "(.*?)"$/) do |content|
+#   fill_in "Content", :with => content
+# end
+Then(/^I can see it has been updated$/) do
+  page.should have_content(@title)
+end
+/*------------------------------*/
+And I fill "Updated title" as Title
+    And I fill "Updated content" as content
